@@ -1,3 +1,21 @@
+<!-- head 안에 script 를 넣어주면 코드를 파싱 하다가 js 파일을 다운받아야 된다고 판단하고
+코드의 분석을 멈추고 다운로드를 완료 한뒤 나머지 코드를 파싱한다
+
+바디의 제일 끝부분에 script를 작성하면, html 코드를 다 파싱하고 다운로드 
+사용자가 기본적인 html의 컨텐츠를 빠르게 볼수 있는 장점은 있지만, 
+js 파일에 의존적인 웹사이트라면, 사용자가 정상적인 화면을 보기까지 시간이 오래걸림
+
+head 안에 script 를 넣는대신 asyn src 로 적어줘서 실행하면,
+html 파일을 파싱 하다가 script를 만나면 fetching 을 하고, 전부 다운로드 받으면 html 코드파싱을 멈추고,
+executing 을 하고, 다시 파싱을 진행
+
+head 안에 script 를 넣고, defer src 를 적어주고 실행하면,
+html 파일을 파싱 하다가 script를 만나면 fetching 을 하고, 전부 다운로드 받더라도 html 코드 파싱이 끝나고,
+executing 한다.
+
+fetching 불러오다
+executing 실행 -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,9 +23,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>javascript study</title>
+    <!-- <script defer src="./exception-handling/exception-handling.js"></script> -->
+    <!-- <script defer src="./dreamcoding-javascript/class.js"></script> -->
+    <!-- <script defer src='./dreamcoding-javascript/main.js'></script> -->
+    <script defer src="./dreamcoding-javascript/variable.js"></script>
   </head>
-  <body>
-    <!-- <script src="./exception-handling/exception-handling.js"></script> -->
-    <script src="./dreamcoding-javascript/class.js"></script>
-  </body>
+  <body></body>
 </html>
