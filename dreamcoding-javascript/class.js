@@ -9,7 +9,7 @@
 
 // 1. Class declarations
 class Person {
-  //constructor
+  //constructor // 생성자
   constructor(name, age) {
     // fields
     this.name = name;
@@ -32,7 +32,7 @@ class User {
   constructor(firstName, lastName, age) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.age = age;
+    this.age = age; // this.age 는 get 을 가져오고, = age 의 age는 se을 실행함
   }
 
   // 값을 리턴
@@ -65,7 +65,7 @@ console.log(experiment.privateField);
 // 4. Static properties and methods
 // Too soon!
 class Article {
-  static publisher = "Dream Coding";
+  static publisher = "Dream Coding"; // static으로 작성하면, 클래스를 이용해서 오브젝트를 만들더라도 static 으로 정의된건 클래스 자체가 가지고 있는 고정 값이기 때문에 오브젝트로는 접근이 안되고, class 자체로 접근해야 됨
   constructor(articleNumber) {
     this.articleNumber = articleNumber;
   }
@@ -77,7 +77,7 @@ class Article {
 
 const article1 = new Article(1);
 const article2 = new Article(2);
-console.log(Article.publisher);
+console.log(Article.publisher); // 클래스로 접근한 모습
 Article.printPublisher();
 
 // 5. inheritance
@@ -90,23 +90,27 @@ class Shape {
   }
 
   draw() {
-    console.log(`drawing ${this.color} color of`);
+    console.log(`drawing ${this.color} color!`);
   }
 
   getArea() {
-    return width * this.height;
+    return this.width * this.height;
   }
 }
 
-class Rectangle extends Shape {}
+class Rectangle extends Shape {} // extends 를 이용해서 상속을 하면 Shape 클래스에 지정한 것들을 상속 받음 , 그리고 오버라이딩이 가능
 class Triangle extends Shape {
   draw() {
-    super.draw();
+    super.draw(); // super를 사용하면 부모의 메소드도 호출 가능
     console.log("🔺");
   }
 
   getArea() {
-    return (this.width * this.height) / 2;
+    return (this.width * this.height) / 2; // 필요한 부분을 오버라이딩 (overWriting) 할수 있음
+  }
+
+  toString() {
+    return `Triangle: color: ${this.color}`;
   }
 }
 
@@ -117,7 +121,7 @@ const triangle = new Triangle(20, 20, "red");
 triangle.draw();
 console.log(triangle.getArea());
 
-// 6. Class checking: instanceOf
+// 6. Class checking: instanceOf // 왼쪽에 있는 변수가 오른쪽에 있는 instance 인지 확인하는 방법
 console.log(rectangle instanceof Rectangle); // true
 console.log(triangle instanceof Rectangle); // false
 console.log(triangle instanceof Triangle); // true
